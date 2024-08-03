@@ -433,8 +433,11 @@ RAPIDJSON_NAMESPACE_END
           \ref RAPIDJSON_ERRORS APIs.
 */
 #ifndef RAPIDJSON_ASSERT
-#include <cassert>
-#define RAPIDJSON_ASSERT(x) assert(x)
+// #include <cassert>
+// #define RAPIDJSON_ASSERT(x) assert(x)
+#include <stdexcept>
+#define RAPIDJSON_ASSERT(x) if(!(x)) throw std::runtime_error("assertion failed")
+#define RAPIDJSON_ASSERT_THROWS 1
 #endif // RAPIDJSON_ASSERT
 
 ///////////////////////////////////////////////////////////////////////////////
